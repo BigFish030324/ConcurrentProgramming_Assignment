@@ -6,7 +6,7 @@
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 
-public class OrderIntakeSystem {
+public class OrderIntakeSystem implements Runnable {
 
     // Defination Section
     private static int order_ms = 10; // Will change to 500 to meet the question requirement, currently put 10 for testing
