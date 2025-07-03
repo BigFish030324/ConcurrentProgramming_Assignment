@@ -8,24 +8,25 @@ import java.util.concurrent.BlockingQueue;
 
 public class OrderIntakeSystem implements Runnable {
 
-    // Defination Section
+    // Definition Section
     private static int order_ms = 10; // Will change to 500 to meet the question requirement, currently put 10 for testing
     private BlockingQueue<Order> intakeSystemBlockingQueue;
     private int totalOrder;
     private Random random;
-    private Statistics statistics;
+    private BackEnd backend;
 
     // Constructor Section
-    public OrderIntakeSystem(BlockingQueue<Order> intakeSystemBlockingQueue, int totalOrder, Statistics statistics) {
+    public OrderIntakeSystem(BlockingQueue<Order> intakeSystemBlockingQueue, int totalOrder, BackEnd backend) {
         this.intakeSystemBlockingQueue = intakeSystemBlockingQueue;
         this.totalOrder = totalOrder;
-        this.statistics = statistics;
+        this.backend = backend;
         this.random = new Random();
     }
 
     // Runnable Section
     @Override
     public void run() {
+        
         // For loop to simulate 1 to totalOrder number (Question: 500 orders)
         for(int id = 1; id <= totalOrder; id++) {
             try {
@@ -36,7 +37,7 @@ public class OrderIntakeSystem implements Runnable {
                 // Simulate there is a 5% rejection rate regarding to the total orders
                 if (random.nextDouble() <= 0.05) {
                     // Code to reject order
-                    // Will do afterwards (Statistics will be implemented here)
+                    // Will do afterwards (BackEnd will be implemented here)
                     Logs.log("OrderIntake: Order #" + id + " rejected (Thread: " + Thread.currentThread().getName() + ")");
                 } else {
                     // Thread wait for their turns using put() which helps in ensuring one thread inserts in a time
@@ -48,6 +49,9 @@ public class OrderIntakeSystem implements Runnable {
                 Thread.currentThread().interrupt();
                 break;
             }
+
+            // Write a success description for Order Intake System
+            System.out.println("Order Intake System Finish Successfully!");
         }
     }
 }
