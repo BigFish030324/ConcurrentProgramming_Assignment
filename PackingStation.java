@@ -47,5 +47,8 @@ public class PackingStation implements Runnable{
             // Handle exception
             Thread.currentThread().interrupt();
         }
+
+        // Write a success description for Packing System
+        System.out.println("Packing Station Finish Successfully!");
     }
 }
