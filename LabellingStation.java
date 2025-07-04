@@ -48,5 +48,8 @@ public class LabellingStation implements Runnable {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
+
+        // Write a success description for Labelling System
+        System.out.println("Labelling Station Finish Successfully!");
     }
 }
