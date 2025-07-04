@@ -1,8 +1,17 @@
-// Each customer ID is a unique ID
+// Create a function to call order with ID, easy for futher getting ID
 
 public class Order {
+
+    // Definition Section
     private final int id;
 
-    public Order(int id) {this.id = id;}
-    public int getId() {return id;}
+    // Constructor Section
+    public Order(int id) {
+        this.id = id;
+    }
+
+    // Getter Function
+    public int getId() {
+        return id;
+    }
 }
