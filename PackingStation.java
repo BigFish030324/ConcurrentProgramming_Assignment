@@ -28,7 +28,7 @@ public class PackingStation implements Runnable{
         try {
             while (true) { 
 
-                // Tries to take order from packsQueue and wait maximum 1 second before give up
+                // Tries to take order from `packsQueue` and wait maximum 1 second before give up
                 Order order = packsQueue.poll(1, TimeUnit.SECONDS);
 
                 // If there is no more orders to take and all works are done, then break this loop
