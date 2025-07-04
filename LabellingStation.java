@@ -24,6 +24,7 @@ public class LabellingStation implements Runnable {
         this.stationId = stationId;
     }
 
+    // Runnable Section
     @Override
     public void run() {
         try {
