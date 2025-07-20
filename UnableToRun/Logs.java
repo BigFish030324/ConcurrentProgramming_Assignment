@@ -1,3 +1,4 @@
+package UnableToRun;
 // Centralized logging utility class
 
 public class Logs {

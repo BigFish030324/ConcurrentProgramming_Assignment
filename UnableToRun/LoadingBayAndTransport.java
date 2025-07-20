@@ -1,3 +1,4 @@
+package UnableToRun;
 // Loading Bay & Transport
 // Task:
 // - 3 autonomous loaders (AGVs) transfer containers to 2 outbound loading bays.
@@ -32,24 +33,28 @@ public class LoadingBayAndTransport {
         public void run() {
             try {
                 while (true) {
+                    // Loading Bay = Space (Truck Holding, 2; Is Taken (True -> False), )
+                    // Before Loading Starts, Check for Truck and LoadingBay (2)
+
+                    // After Successfully Taken, Loading Process Start
                     // Tries to take container from `loadingBayQueue` and wait maximum 1 second before give up
                     Container container = loadingBayQueue.poll(1, TimeUnit.SECONDS);
                     
                     // If there is no more containers to take and all works are done, then break this loop
-                    // if (container == null && backend.isDone()) {
-                    //     break;
-                    // }
+                    if (container == null && backend.isDone()) {
+                        break;
+                    }
 
                     if (container != null) {
 
                         // Simulate there is a 1% breakdown rate
                         if (random.nextDouble() < breakdown_rate) {
-                            Logs.log("Loader-" + loaderId + ": Breakdown");
+                            Logs.log("Loader-" + loaderId + ": Breakdown");     // Release Loader Holding Truck (Other Can Take Over)
 
                             // Logs a breakdown and pauses 2 seconds to simulate repair
                             Thread.sleep(2000);
                         }
-                        Logs.log("Loader-" + loaderId + ": Moving Container #" + breakdown_rate + " to " + stationId);
+                        Logs.log("Loader-" + loaderId + ": Moving Container #" + container + " to " + stationId);
                     }
                 }
             } catch (InterruptedException e) {
@@ -73,7 +78,10 @@ public class LoadingBayAndTransport {
         public void run() {
             long start = System.currentTimeMillis();
             try {
-                loadingBayQueue.put(new Container());
+
+                // Waiting Queue (When enter system, When Take into Bay, When Exit)
+                Thread.sleep(100);
+                // loadingBayQueue.put();
                 // Will do afterwards (BackEnd will be implemented here)
                 // Considering what will be added here
                 // Logs.log("Truck-" + truckId + ": Fully loaded with " + containerCount + " containers. Departing to Distribution Centre.");
