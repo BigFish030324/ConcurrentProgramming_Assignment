@@ -26,6 +26,12 @@ public class ThreadHolder {
     
     // If thread is completed
     public static volatile boolean orderIntakeFinished = false;
+    
+    // Thread Names
+    public static final String ORDER_THREAD = "OrderThread-1";
+    
+    // Counters for IDs
+    public static volatile int orderIDCounter = 1;
     public static volatile boolean pickingFinished = false;
     public static volatile boolean packingFinished = false;
     public static volatile boolean labellingFinished = false;
