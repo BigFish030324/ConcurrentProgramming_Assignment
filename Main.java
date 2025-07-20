@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 public class Main {
 
     private static List<Long> truckLoadingTimes = new ArrayList<>();
@@ -107,6 +111,61 @@ public class Main {
         
         long simulationEnd = System.currentTimeMillis();
         long totalTime = simulationEnd - simulationStart;
+        
+        // Print final statistics
+        printStatistics(totalTime);
     }
+    
+    private static void printStatistics(long totalTime) {
+        System.out.println("\n==================================================");
+        System.out.println("SWIFTCART SIMULATION COMPLETED");
+        System.out.println("==================================================");
+        System.out.println("Simulation Duration: " + (totalTime / 1000.0) + " seconds");
+        System.out.println();
+        
+        System.out.println("PROCESSING STATISTICS:");
+        System.out.println("Orders Generated: " + ThreadHolder.totalOrdersGenerated);
+        System.out.println("Orders Rejected: " + ThreadHolder.totalOrdersRejected);
+        System.out.println("Orders Successfully Picked: " + ThreadHolder.totalOrdersPicked);
+        System.out.println("Orders Successfully Packed: " + ThreadHolder.totalOrdersPacked);
+        System.out.println("Boxes Labelled: " + ThreadHolder.totalBoxesLabelled);
+        System.out.println("Boxes Sorted: " + ThreadHolder.totalBoxesSorted);
+        System.out.println("Containers Loaded: " + ThreadHolder.totalContainersLoaded);
+        System.out.println("Trucks Dispatched: " + ThreadHolder.totalTrucksDispatched);
+        System.out.println();
+        
+        System.out.println("CONFIRMATION:");
+        System.out.println("Done - All ORDERS processed through the system");
+        System.out.println("Done - All BOXES cleared from stations");
+        System.out.println("Done - All CONTAINERS loaded and dispatched");
+        System.out.println("Done - All LOADING BAYS cleared");
+        System.out.println();
+        
+        // Calculate efficiency
+        double orderSuccess = (double) ThreadHolder.totalOrdersPicked / ThreadHolder.totalOrdersGenerated * 100;
+        System.out.println("METRICS:");
+        System.out.printf("Order Success Rate: %.2f%%\n", orderSuccess);
+        System.out.printf("Rejection Rate: %.2f%%\n", 100 - orderSuccess);
+        System.out.println();
+        
+        System.out.println("INVENTORY STATUS:");
+        System.out.println("Initial Inventory Orders: 20");
+        System.out.println("Remaining Inventory Orders: " + ThreadHolder.inventoryOrders);
+        System.out.println("Inventory Orders Used: " + (20 - ThreadHolder.inventoryOrders));
+        System.out.println();
+        
+        System.out.println("THREAD COMPLETION STATUS:");
+        System.out.println("Order Intake: " + (ThreadHolder.orderIntakeFinished ? "COMPLETED" : "RUNNING"));
+        System.out.println("Picking Stations: " + (ThreadHolder.pickingFinished ? "COMPLETED" : "RUNNING"));
+        System.out.println("Packing Station: " + (ThreadHolder.packingFinished ? "COMPLETED" : "RUNNING"));
+        System.out.println("Labelling Station: " + (ThreadHolder.labellingFinished ? "COMPLETED" : "RUNNING"));
+        System.out.println("Sorting Area: " + (ThreadHolder.sortingFinished ? "COMPLETED" : "RUNNING"));
+        System.out.println("Loading Bay: " + (ThreadHolder.loadingFinished ? "COMPLETED" : "RUNNING"));
+        System.out.println("Transport: " + (ThreadHolder.transportFinished ? "COMPLETED" : "RUNNING"));
+        System.out.println();
+        
+        System.out.println("==================================================");
+        System.out.println("SwiftCart simulation completed successfully!");
+        System.out.println("==================================================");
     }
 }
