@@ -5,6 +5,17 @@ public class ThreadHolder {
     // Queues
     public static BlockingQueue<Order> orderQueue = new LinkedBlockingQueue<>();
     public static BlockingQueue<Order> packingQueue = new LinkedBlockingQueue<>();
+  
+    // Counters for statistics
+    public static volatile int totalOrdersPicked = 0;
+    public static volatile int totalOrdersPacked = 0;
+    
+    // If thread is completed
+    public static volatile boolean orderIntakeFinished = false;
+    public static volatile boolean pickingFinished = false;
+    public static volatile boolean packingFinished = false;
+    
+    // Thread Names
     public static BlockingQueue<Box> labellingQueue = new LinkedBlockingQueue<>();
     public static BlockingQueue<Box> sortingQueue = new LinkedBlockingQueue<>();
     public static BlockingQueue<Container> loadingBayQueue = new LinkedBlockingQueue<>();
