@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
 public class Main {
 
+    private static List<Long> truckLoadingTimes = new ArrayList<>();
+    private static List<Long> truckWaitingTimes = new ArrayList<>();
     // If more than 6 minutes, then stop the simulation (For double check purpose)
     static long simulationTimeout = 6 * 60000;
     
@@ -82,6 +86,22 @@ public class Main {
                 executor.shutdownNow();
                 Thread.currentThread().interrupt();
             }
+
+            // Interrupt manually started threads if they are still alive
+            if (Transport.getTruck1ThreadRef() != null && Transport.getTruck1ThreadRef().isAlive()) {
+                Transport.getTruck1ThreadRef().interrupt();
+            }
+            if (Transport.getTruck2ThreadRef() != null && Transport.getTruck2ThreadRef().isAlive()) {
+                Transport.getTruck2ThreadRef().interrupt();
+            }
+            if (Transport.getTruck3ThreadRef() != null && Transport.getTruck3ThreadRef().isAlive()) {
+                Transport.getTruck3ThreadRef().interrupt();
+            }
+            if (LoadingBay.getBayWorkerThreadRef() != null && LoadingBay.getBayWorkerThreadRef().isAlive()) {
+                LoadingBay.getBayWorkerThreadRef().interrupt();
+            }
+            if (LoadingBay.getTruckWorkerThreadRef() != null && LoadingBay.getTruckWorkerThreadRef().isAlive()) {
+                LoadingBay.getTruckWorkerThreadRef().interrupt();
             }
         }
         
