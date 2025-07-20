@@ -67,6 +67,10 @@ public class ThreadHolder {
     public static BlockingQueue<Container> loadingTruckQueue = new LinkedBlockingQueue<>();
     
     // Counters for statistics
+    public static volatile int totalContainersLoaded = 0;
+    public static volatile int totalTrucksDispatched = 0;
+    
+    // If thread is completed
     public static volatile int totalOrdersGenerated = 0;
     public static volatile int totalOrdersRejected = 0;
     public static volatile int totalOrdersPicked = 0;
