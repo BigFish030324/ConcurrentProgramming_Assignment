@@ -1,5 +1,6 @@
-# ConcurrentProgramming_Assignment
+# SwiftCart - Concurrent Programming Assignment
 
+---
 ## Case Study
 I have been assigned to **simulate the operations of SwiftCart**, a highly automated e-
 commerce centre that **handles online orders** for a major shopping platform.
@@ -27,3 +28,15 @@ the following *six key sections*:
    - 3 autonomous loaders (AGVs) transfer containers to 2 outbound loading bays.
    - Trucks take up to 18 containers and leave for delivery hubs.
    - If both bays are occupied, incoming trucks must wait.
+
+---
+## Additional Requirements
+1. Defective Orders
+   - Orders may be rejected at any stage (e.g., out-of-stock items, packing errors,
+mislabelling).
+   - Defective orders are removed by a reject handler and logged.
+2. Autonomous Loaders
+   - Trucks can only be loaded when a loader and bay are free.
+3. Concurrent Activities
+   - Loaders and outbound trucks operate concurrently.
+   - Simulate congestion: e.g., 1 truck is waiting while both loading bays are in use.
