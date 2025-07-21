@@ -1,3 +1,20 @@
+// # Loading Bay & Trasport
+// Tasks:
+//    a. 3 autonomous loaders (AGVs) transfer containers to 2 outbound loading bays.
+//    b. Trucks take up to 18 containers and leave for delivery hubs.
+//    c. If both bays are occupied, incoming trucks must wait.
+
+// *****************************Additional Requirements****************************
+
+// # Autonomous Loaders
+// - Trucks can only be loaded when a loader and bay are free.
+
+// # Concurrent Activities
+// - TLoaders and outbound trucks operate concurrently.
+// - Simulate congestion: e.g., 1 truck is waiting while both loading bays are in use.
+
+// =========================================================================================
+
 import java.util.concurrent.Semaphore;
 
 public class LoadingBay {

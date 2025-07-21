@@ -1,3 +1,9 @@
+// # Labelling Station
+// Tasks:
+//    a. Each box is assigned a shipping label with destination and tracking.
+//    b. Boxes pass through a quality scanner (1 at a time).
+// =========================================================================================
+
 public class LabellingStation implements Runnable {
     private int labelledCount = 0;
     private String[] regions = {"Malaysia", "Singapore", "Thailand", "Indonesia"};

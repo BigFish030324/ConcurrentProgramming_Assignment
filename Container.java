@@ -1,3 +1,9 @@
+// # Container
+// - Create container's component
+// - Each container can handle maximum 30 boxes
+
+// =========================================================================================
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,3 +1,18 @@
+// # Picking Station
+// Tasks:
+//    a. Robotic arms pick items from shelves and place them into order bins.
+//    b. Up to 4 orders can be picked at a time.
+//    c. Orders are verified for missing items.
+
+// *****************************Additional Requirements****************************
+
+// # Defective Orders
+// - Orders may be rejected at any stage (e.g., out-of-stock items, packing errors,
+// mislabelling).
+// - Defective orders are removed by a reject handler and logged.
+
+// =========================================================================================
+
 public class PickingStation implements Runnable {
     private String pickerName;
     private int pickedCount = 0;

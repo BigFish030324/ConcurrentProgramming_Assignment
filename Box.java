@@ -1,3 +1,9 @@
+// # Box
+// - Create box's component with tracking ID and region\
+// - Each box can handle maximum 20 orders
+
+// =========================================================================================
+
 import java.util.ArrayList;
 import java.util.List;
 

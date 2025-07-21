@@ -1,3 +1,9 @@
+// # Thread Holder
+// - Create and handles threads
+// - Create inventory available orders, ID counts and tracking ID's components
+
+// =========================================================================================
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 

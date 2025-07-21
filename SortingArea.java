@@ -1,3 +1,9 @@
+// # Sorting Area
+// Tasks:
+//    a. Boxes are sorted into batches of 6 boxes based on regional zones.
+//    b. Batches are loaded into transport containers (30 boxes per container).
+// =========================================================================================
+
 import java.util.HashMap;
 import java.util.Map;
 

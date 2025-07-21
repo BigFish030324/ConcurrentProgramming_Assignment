@@ -1,3 +1,17 @@
+// # Order Intake System
+// Tasks:
+//    a. Orders arrive from the online platform at a rate of 1 order every 500ms.
+//    b. Each order is verified for payment, inventory availability, and shipping address.
+
+// *****************************Additional Requirements****************************
+
+// # Defective Orders
+// - Orders may be rejected at any stage (e.g., out-of-stock items, packing errors,
+// mislabelling).
+// - Defective orders are removed by a reject handler and logged.
+
+// =========================================================================================
+
 public class OrderIntakeSystem implements Runnable {
     private int targetOrders;
     

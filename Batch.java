@@ -1,3 +1,9 @@
+// # Batch
+// - Create batch's component
+// - Each batch can have maximum 6 boxes
+
+// =========================================================================================
+
 import java.util.ArrayList;
 import java.util.List;
 
