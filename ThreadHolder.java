@@ -51,15 +51,15 @@ public class ThreadHolder {
     public static volatile int totalBoxesSorted = 0;
     public static volatile int totalContainersLoaded = 0;
     public static volatile int totalTrucksDispatched = 0;
-    
+
+     // Inventory
+    public static volatile int inventoryOrders = 20;
+
     // Global counters for IDs
     public static volatile int orderIDCounter = 1;
     public static volatile int boxIDCounter = 1;
     public static volatile int containerIDCounter = 1;
     public static volatile int batchIDCounter = 1;
-
-    // Inventory
-    public static volatile int inventoryOrders = 20;
 
     // Tracking ID components
     public static volatile char trackingLetter = 'A';
